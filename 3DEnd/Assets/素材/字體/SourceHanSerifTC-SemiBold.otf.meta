@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2a879669dc515b245ba4b2d99655c7ac
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Source Han Serif TC
+  fontNames:
+  - Source Han Serif TC
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 12327948e9034944790be15378af0d6f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
