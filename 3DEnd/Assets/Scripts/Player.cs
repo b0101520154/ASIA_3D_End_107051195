@@ -3,7 +3,7 @@ using Invector.vCharacterController;
 
 public class Player : MonoBehaviour
 {
-    private float hp = 100;
+    private float hp = 200;
     private Animator ani;
 
     private void Awake()
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     }
     public void Damage()
     {
-        hp -= 100;
+        hp -= 30;
         ani.SetTrigger("受傷觸發");
 
         if (hp <= 0) Dead();
