@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
-using Invector.vCharacterController;
+using Invector.vCharacterController;    
 
 public class Player : MonoBehaviour
 {
-    private float hp = 200;
+    private float hp = 100;
     private Animator ani;
     private int atkCount;
 
     private float timer;
 
-    [Header("聯擊間隔時間"), Range(0, 3)]
+    [Header("連擊間隔時間"), Range(0, 3)]
     public float interval = 1;
     [Header("攻擊中心點")]
     public Transform atkPoint;
@@ -38,11 +38,12 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        if(atkCount<3)
+        if (atkCount < 4)
         {
             if (timer < interval)
             {
                 timer += Time.deltaTime;
+
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     atkCount++;
@@ -60,9 +61,10 @@ public class Player : MonoBehaviour
                 timer = 0;
             }
         }
-        if (atkCount == 3) atkCount = 0;
-        ani.SetInteger("連擊", atkCount);
 
+        if (atkCount == 4) atkCount = 0;
+
+        ani.SetInteger("連擊", atkCount);
     }
 
     public void Damage(float damage)
@@ -72,11 +74,10 @@ public class Player : MonoBehaviour
 
         if (hp <= 0) Dead();
     }
+
     private void Dead()
     {
         ani.SetTrigger("死亡觸發");
-
-        // 鎖定移動與旋轉
         vThirdPersonController vt = GetComponent<vThirdPersonController>();
         vt.lockMovement = true;
         vt.lockRotation = true;

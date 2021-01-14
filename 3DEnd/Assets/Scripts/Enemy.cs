@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI;   
+
 public class Enemy : MonoBehaviour
 {
     [Header("移動速度"), Range(0, 50)]
@@ -18,6 +19,9 @@ public class Enemy : MonoBehaviour
     private Transform player;
     private NavMeshAgent nav;
     private Animator ani;
+    /// <summary>
+    /// 計時器
+    /// </summary>
     private float timer;
 
     private void Awake()
@@ -43,7 +47,6 @@ public class Enemy : MonoBehaviour
     }
 
     private RaycastHit hit;
-
     private void Attack()
     {
         if (nav.remainingDistance < stopDistance)
@@ -64,7 +67,6 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
     }
 
     public float hp = 100;
@@ -79,10 +81,11 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        nav.isStopped = true;
-        enabled = false;
-        ani.SetBool("死亡開關", true);
+        nav.isStopped = true;               
+        enabled = false;                  
+        ani.SetBool("死亡開關", true);       
     }
+
     private void Track()
     {
         nav.SetDestination(player.position);
